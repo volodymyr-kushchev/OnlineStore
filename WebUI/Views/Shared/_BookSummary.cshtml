@@ -1,0 +1,28 @@
+﻿@model ClassLibrary.Entities.Book
+<div class=" borderbtn well">
+    <div class="row">
+        <div class="col-xs-8">
+            <h3>
+                <strong>@Model.Name</strong>
+            </h3>
+            <h4>
+                <strong>@Model.Author</strong>
+            </h4>
+        </div>
+        <div class="col-xs-3">
+            <h3>
+                <strong id="price" class="pull-right label label-primary">
+                    @Model.Price.ToString("# грн")
+                </strong>
+            </h3>
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                <div class="pull-sm-right">
+                    @Html.HiddenFor(x => x.BookId)
+                    <input type="submit" class="btn btn-success" value="В корзину" />
+                </div>
+            }
+        </div>
+    </div>
+    <span class="lead">@Model.Description</span>
+</div>

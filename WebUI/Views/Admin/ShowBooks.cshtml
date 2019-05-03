@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ClassLibrary.Entities.Book>
+@using Newtonsoft.Json
+
+@{
+    /**/
+
+    ViewBag.Title = "ShowBooks";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Raw(JsonConvert.SerializeObject(@Model))
+
+<h2>ShowBooks</h2>
+
+@*@section scripts {
+    <script type="text / javascript">
+        $(function() {
+        $.get ('/Admin/' ).done ( function (cars) {
+        $.each (cars, function (i, car)) {
+        var item = '<li>
+            <strong> $ {car.make} $ {car.model} </strong>
+                (£ $ {car.price})</li>';
+                $ ( '# car-list' ).append(item); });});
+                });
+    </script>
+}
+<script type="text/javascript">
+        function OnSuccess(data) {
+            var results = $('#BooksTable'); // получаем нужный элемент
+            results.empty(); //очищаем элемент
+            for (var i = 0; i < data.length; i++) {
+                results.append('<li>' + data[i].Name + '</li>'); // добавляем данные в список
+            }
+        }
+<div id="results"></div>
+</script>*@
+
